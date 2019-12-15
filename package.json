@@ -1,0 +1,33 @@
+{
+	"name": "@code-gems/signature-pad",
+	"version": "0.0.1",
+	"description": "",
+	"main": "demo/index.html",
+	"scripts": {
+		"start": "node run start",
+		"dev": "webpack --config webpack.config.js --watch --mode development",
+		"build": "webpack --config webpack.config.js --mode production",
+		"serv": "webpack-dev-server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/code-gems/signature-pad.git"
+	},
+	"author": "codege.ms",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/code-gems/signature-pad/issues"
+	},
+	"homepage": "https://github.com/code-gems/signature-pad#readme",
+	"dependencies": {
+		"lit-element": "^2.2.1",
+		"lit-html": "^1.1.2"
+	},
+	"devDependencies": {
+		"ts-loader": "^6.2.1",
+		"typescript": "^3.4.3",
+		"webpack": "^4.41.2",
+		"webpack-cli": "^3.3.10",
+		"webpack-dev-server": "^3.9.0"
+	}
+}
