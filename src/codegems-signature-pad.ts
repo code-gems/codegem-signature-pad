@@ -23,13 +23,14 @@ export class CodegemsSignaturePad extends LitElement {
 	options: any;
 	@property()
 	disabled: boolean;
-	@property()
-	canvas: HTMLCanvasElement;
-	@property()
+
+	// view props
 	ctx: CanvasRenderingContext2D;
+	canvas: HTMLCanvasElement;
 	brush: Brush;
 	hasSignature: boolean;
 
+	// event binding
 	_boundCanvasEventTouchStart: any;
 	_boundCanvasEventTouchMove: any;
 	_boundWindowResize: any;
@@ -81,17 +82,14 @@ export class CodegemsSignaturePad extends LitElement {
 	}
 
 	render() {
-		return html`
-			<canvas></canvas>
-		`;
+		return html` <canvas></canvas> `;
 	}
 
 	draw() {
 		if (
 			this.brush.position.lastX &&
 			this.brush.position.lastY &&
-			(this.brush.position.x !== this.brush.position.lastX ||
-				this.brush.position.y !== this.brush.position.lastY)
+			(this.brush.position.x !== this.brush.position.lastX || this.brush.position.y !== this.brush.position.lastY)
 		) {
 			this.ctx.fillStyle = this.brush.color;
 			this.ctx.strokeStyle = this.brush.color;
@@ -104,14 +102,7 @@ export class CodegemsSignaturePad extends LitElement {
 
 		this.ctx.fillStyle = this.brush.color;
 		this.ctx.beginPath();
-		this.ctx.arc(
-			this.brush.position.x,
-			this.brush.position.y,
-			this.brush.size,
-			0,
-			Math.PI * 2,
-			true
-		);
+		this.ctx.arc(this.brush.position.x, this.brush.position.y, this.brush.size, 0, Math.PI * 2, true);
 		this.ctx.closePath();
 		this.ctx.fill();
 
@@ -123,7 +114,7 @@ export class CodegemsSignaturePad extends LitElement {
 	// https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm
 	simplifyLine(points: any[], length: number) {
 		let newLine = [...points[0]];
-		let end = points.length - 1;
+		let endLine = points.length - 1;
 
 		const simplify = (start: number, end: number) => {
 			// recursize simplifies points from start to end
@@ -179,8 +170,8 @@ export class CodegemsSignaturePad extends LitElement {
 			}
 		};
 
-		simplify(0, end);
-		newLine.push(points[end]);
+		simplify(0, endLine);
+		newLine.push(points[endLine]);
 		return newLine;
 	}
 

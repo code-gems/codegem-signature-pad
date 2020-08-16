@@ -4,8 +4,7 @@
 	"description": "",
 	"main": "demo/index.html",
 	"scripts": {
-		"start": "node run start",
-		"dev": "webpack --config webpack.config.js --watch --mode development",
+		"start": "node ./webpack-devserver.js",
 		"build": "webpack --config webpack.config.js --mode production",
 		"serv": "webpack-dev-server"
 	},
@@ -24,10 +23,11 @@
 		"lit-html": "^1.1.2"
 	},
 	"devDependencies": {
-		"ts-loader": "^6.2.1",
-		"typescript": "^3.4.3",
-		"webpack": "^4.41.2",
-		"webpack-cli": "^3.3.10",
-		"webpack-dev-server": "^3.9.0"
+		"ts-loader": "^8.0.2",
+		"typescript": "^3.9.7",
+		"webpack": "^4.44.1",
+		"webpack-cli": "^3.3.12",
+		"webpack-dev-server": "^3.11.0",
+		"open": "~7.1.0"
 	}
 }
